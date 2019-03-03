@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+	<form onsubmit="submitForm(document.querySelector('#name').value, document.querySelector('#position').value);return false;" class="container mt-5 mb-5">
+		<div class="form-group">
+			<label for="name">Имя</label>
+			<input id="name" class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="position">Должность</label>
+			<select id="position" class="form-control">
+				<option value="Директор">Директор</option>
+				<option value="Сотрудник">Сотрудник</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<button class="btn btn-warning">Срабатывает только при клике</button>
+		</div>
+	</form>
+	<div id="submit-container" class="container" style="display: none">
+		<div class="alert alert-primary">Результат отправки формы</div>
+		<div class="row">
+			<div class="col-sm-6 js-name">
+				<div class="alert alert-secondary"></div>
+			</div>
+			<div class="col-sm-6 js-position">
+				<div class="alert alert-secondary"></div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/my.js"></script>
+</body>
+</html>
+
+<!--
+// 1. Добавить поле Фамилия
+// 2. Добавить селект Пол
+// 3. Сделать, чтобы если пол мужской, то заголовок "Результат отправки формы" имеет класс alert-primary, если женский, то alert-danger
+// 4. Выводить фамилию и пол в отдельных алертах, если они заданы
+// 5. На селекте пола и должности должно срабатывать событие onchange
+// 6. На имени и фамили должно срабатывать событие oninput
+->
