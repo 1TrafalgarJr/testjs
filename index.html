@@ -6,14 +6,25 @@
 	<title>Title</title>
 </head>
 <body>
-	<form onsubmit="submitForm(document.querySelector('#name').value, document.querySelector('#position').value);return false;" class="container mt-5 mb-5">
+	<form onsubmit="submitForm(document.querySelector('#name').value, document.querySelector('#surname').value, document.querySelector('#floor').value, document.querySelector('#position').value);return false;" class="container mt-5 mb-5">
 		<div class="form-group">
 			<label for="name">Имя</label>
-			<input id="name" class="form-control">
+			<input id="name" class="form-control" oninput="submitForm(document.querySelector('#name').value, document.querySelector('#surname').value, document.querySelector('#floor').value, document.querySelector('#position').value);">
+		</div>
+		<div class="form-group">
+			<label for="surname">Фамилия</label>
+			<input id="surname" class="form-control" oninput="submitForm(document.querySelector('#name').value, document.querySelector('#surname').value, document.querySelector('#floor').value, document.querySelector('#position').value);">
+		</div>
+		<div class="form-group">
+			<label for="floor">Пол</label>
+			<select id="floor" class="form-control" onchange="submitForm(document.querySelector('#name').value, document.querySelector('#surname').value, document.querySelector('#floor').value, document.querySelector('#position').value);">
+				<option value="Мужской">Мужской</option>
+				<option value="Женский">Женский</option>
+			</select>
 		</div>
 		<div class="form-group">
 			<label for="position">Должность</label>
-			<select id="position" class="form-control">
+			<select id="position" class="form-control" onchange="submitForm(document.querySelector('#name').value, document.querySelector('#surname').value, document.querySelector('#floor').value, document.querySelector('#position').value);">
 				<option value="Директор">Директор</option>
 				<option value="Сотрудник">Сотрудник</option>
 			</select>
@@ -23,9 +34,15 @@
 		</div>
 	</form>
 	<div id="submit-container" class="container" style="display: none">
-		<div class="alert alert-primary">Результат отправки формы</div>
+		<div class="alert alert-primary" id="result-container">Результат отправки формы</div>
 		<div class="row">
 			<div class="col-sm-6 js-name">
+				<div class="alert alert-secondary"></div>
+			</div>
+			<div class="col-sm-6 js-surname">
+				<div class="alert alert-secondary"></div>
+			</div>
+			<div class="col-sm-6 js-floor">
 				<div class="alert alert-secondary"></div>
 			</div>
 			<div class="col-sm-6 js-position">
@@ -44,4 +61,9 @@
 // 4. Выводить фамилию и пол в отдельных алертах, если они заданы
 // 5. На селекте пола и должности должно срабатывать событие onchange
 // 6. На имени и фамили должно срабатывать событие oninput
+//
+// 7. Переименовать floor в sex
+// 8. Добавить в пол по умолчанию значение Не выбран, у которого value = ""
+// 9. Добавить у должности по умолчанию значение Не выбрана, у которого value = ""
+// 10. Показывать select с полом и должностью, только если указаны имя и фамилия
 ->
