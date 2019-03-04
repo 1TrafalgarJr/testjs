@@ -14,7 +14,6 @@ let submitForm = function (name, surname, floor, position) {
 
         if (name !== '') {
             nameHTML = alertBlock('Имя: ' + name);
-
         }
 
         if (surname !== '') {
