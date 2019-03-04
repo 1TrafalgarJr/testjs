@@ -1,12 +1,12 @@
-let submitForm = function (name, surname, floor, position) {
+let submitForm = function (name, surname, sex, position) {
     let submitContainer = document.querySelector('#submit-container');
     submitContainer.style.display = 'none';
 
-    if (name !== '' || surname !== '' || floor !== '' || position !== '') {
+    if (name !== '' || surname !== '' || sex !== '' || position !== '') {
         let resultContainer = submitContainer.querySelector('#result-container');
         let nameHTML = alertBlock();
         let surnameHTML = alertBlock();
-        let floorHTML = alertBlock();
+        let sexHTML = alertBlock();
         let positionHTML = alertBlock();
 
         resultContainer.classList.remove('alert-danger');
@@ -20,10 +20,10 @@ let submitForm = function (name, surname, floor, position) {
             surnameHTML = alertBlock('Фамилия: ' + surname);
         }
 
-        if (floor !== '') {
-            floorHTML = alertBlock('Пол: ' + floor);
+        if (sex !== '') {
+            sexHTML = alertBlock('Пол: ' + sex);
 
-            switch (floor) {
+            switch (sex) {
                 case 'Женский':
                     resultContainer.classList.add('alert-danger');
 
@@ -41,14 +41,47 @@ let submitForm = function (name, surname, floor, position) {
             positionHTML = alertBlock('Должность: ' + position);
         }
 
-        submitContainer.querySelector('.js-name').innerHTML = nameHTML;
-        submitContainer.querySelector('.js-surname').innerHTML = surnameHTML;
-        submitContainer.querySelector('.js-floor').innerHTML = floorHTML;
-        submitContainer.querySelector('.js-position').innerHTML = positionHTML;
+        let jsName = submitContainer.querySelector('.js-name');
+        let jsSurname = submitContainer.querySelector('.js-surname');
+        let jsSex = submitContainer.querySelector('.js-sex');
+        let jsPosition = submitContainer.querySelector('.js-position');
+        
+        toggleAlertContainer(name, jsName);
+        toggleAlertContainer(surname, jsSurname);
+        toggleAlertContainer(sex, jsSex);
+        toggleAlertContainer(position, jsPosition);
+
+        jsName.innerHTML = nameHTML;
+        jsSurname.innerHTML = surnameHTML;
+        jsSex.innerHTML = sexHTML;
+        jsPosition.innerHTML = positionHTML;
         submitContainer.style.display = 'block';
 
     }
 };
+
+let toggleAlertContainer = function (value, alertContainer) {
+    alertContainer.style.display = 'none';
+
+    if (value !== '') {
+        alertContainer.style.display = 'block';
+    }
+}
+
+
+let submitForm2 = function (name, surname) {
+    let sexContainer = document.querySelector('#sex-container');
+    let positionContainer = document.querySelector('#position-container');
+    sexContainer.style.display = 'none';
+    positionContainer.style.display = 'none';
+
+    if (name !== '' && surname !== '' ) {
+        sexContainer.style.display = 'block';
+        positionContainer.style.display = 'block';
+    }
+};
+
+
 
 let alertBlock = function (text = '') {
     if (text === '') {
@@ -57,3 +90,4 @@ let alertBlock = function (text = '') {
 
     return '<div class="alert alert-secondary">' + text + '</div>'
 };
+

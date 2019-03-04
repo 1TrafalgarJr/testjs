@@ -6,25 +6,27 @@
 	<title>Title</title>
 </head>
 <body>
-	<form onsubmit="submitForm(document.querySelector('#name').value, document.querySelector('#surname').value, document.querySelector('#floor').value, document.querySelector('#position').value);return false;" class="container mt-5 mb-5">
+	<form onsubmit="submitForm(document.querySelector('#name').value, document.querySelector('#surname').value, document.querySelector('#sex').value, document.querySelector('#position').value);return false;" class="container mt-5 mb-5">
 		<div class="form-group">
 			<label for="name">Имя</label>
-			<input id="name" class="form-control" oninput="submitForm(document.querySelector('#name').value, document.querySelector('#surname').value, document.querySelector('#floor').value, document.querySelector('#position').value);">
+			<input id="name" class="form-control" value="dfdfdf" oninput="submitForm(document.querySelector('#name').value, document.querySelector('#surname').value, document.querySelector('#sex').value, document.querySelector('#position').value); submitForm2(document.querySelector('#name').value, document.querySelector('#surname').value);">
 		</div>
 		<div class="form-group">
 			<label for="surname">Фамилия</label>
-			<input id="surname" class="form-control" oninput="submitForm(document.querySelector('#name').value, document.querySelector('#surname').value, document.querySelector('#floor').value, document.querySelector('#position').value);">
+			<input id="surname" class="form-control" oninput="submitForm(document.querySelector('#name').value, document.querySelector('#surname').value, document.querySelector('#sex').value, document.querySelector('#position').value); submitForm2(document.querySelector('#name').value, document.querySelector('#surname').value);">
 		</div>
-		<div class="form-group">
-			<label for="floor">Пол</label>
-			<select id="floor" class="form-control" onchange="submitForm(document.querySelector('#name').value, document.querySelector('#surname').value, document.querySelector('#floor').value, document.querySelector('#position').value);">
+		<div id="sex-container" class="form-group" style="display: none;">
+			<label for="sex">Пол</label>
+			<select id="sex" class="form-control" onchange="submitForm(document.querySelector('#name').value, document.querySelector('#surname').value, document.querySelector('#sex').value, document.querySelector('#position').value);">
+				<option value="">Не выбран</option>
 				<option value="Мужской">Мужской</option>
 				<option value="Женский">Женский</option>
 			</select>
 		</div>
-		<div class="form-group">
+		<div id="position-container" class="form-group" style="display: none;">
 			<label for="position">Должность</label>
-			<select id="position" class="form-control" onchange="submitForm(document.querySelector('#name').value, document.querySelector('#surname').value, document.querySelector('#floor').value, document.querySelector('#position').value);">
+			<select id="position" class="form-control" onchange="submitForm(document.querySelector('#name').value, document.querySelector('#surname').value, document.querySelector('#sex').value, document.querySelector('#position').value);">
+				<option value="">Не выбрана</option>
 				<option value="Директор">Директор</option>
 				<option value="Сотрудник">Сотрудник</option>
 			</select>
@@ -42,7 +44,7 @@
 			<div class="col-sm-6 js-surname">
 				<div class="alert alert-secondary"></div>
 			</div>
-			<div class="col-sm-6 js-floor">
+			<div class="col-sm-6 js-sex">
 				<div class="alert alert-secondary"></div>
 			</div>
 			<div class="col-sm-6 js-position">
@@ -67,4 +69,5 @@
 // 9. Добавить у должности по умолчанию значение Не выбрана, у которого value = ""
 // 10. Показывать select с полом и должностью, только если указаны имя и фамилия
 // !11. Сделать так, чтобы если col без алерта, то col был display: none;
+// 12. Сделать так, чтобы при клике на submit-container в консоль писалось "Привет!"
 ->
