@@ -66,7 +66,7 @@ let toggleAlertContainer = function (value, alertContainer) {
     if (value !== '') {
         alertContainer.style.display = 'block';
     }
-}
+};
 
 
 let submitForm2 = function (name, surname) {
@@ -90,4 +90,53 @@ let alertBlock = function (text = '') {
 
     return '<div class="alert alert-secondary">' + text + '</div>'
 };
+
+let textIt = function () {
+    console.log('Привет!');
+};
+
+
+
+
+
+let testAlert = function (handler1, handler2) {
+    function handler1 () {
+        alert('Hello world');
+    }
+    function handler2 () {
+        alert('Hello v2.0');
+    }
+
+    repetition.onclick = function () {
+        alert("Привет");
+    };
+    repetition.addEventListener("click", handler1);
+    repetition.addEventListener("click", handler2);
+}
+
+
+
+let textClick = function (phone)  {
+    let button = phone.querySelector('#click');
+    let phoneNumber = phone.querySelector('#text');
+    let checkPhone = function () {
+        if (phoneNumber.value.length > 0) {
+            alert('В данном поле появилась информация');
+        } else {
+            alert('В данном поле пусто');
+        }
+    }
+
+    button.addEventListener('click', checkPhone)
+}(document)
+
+
+
+
+
+
+
+
+
+
 

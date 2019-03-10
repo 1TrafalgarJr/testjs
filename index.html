@@ -35,7 +35,7 @@
 			<button class="btn btn-warning">Срабатывает только при клике</button>
 		</div>
 	</form>
-	<div id="submit-container" class="container" style="display: none">
+	<div id="submit-container" class="container" style="display: none" onclick="textIt();">
 		<div class="alert alert-primary" id="result-container">Результат отправки формы</div>
 		<div class="row">
 			<div class="col-sm-6 js-name">
@@ -52,6 +52,26 @@
 			</div>
 		</div>
 	</div>
+
+	<div id="repetition" class="test container mt-5 mb-5" onclick="testAlert();">
+		<button class="btn btn-dark">Test Alert</button>
+	</div>
+
+	<div class="container mt-5 mb-5">
+		<div class="form-inline">
+			<div class="form-group mb-0">
+				<label for="text"></label>
+				<input type="text" id="text" placeholder="Mobile number" class="form-control">
+			</div>
+			<button type="submit" id="click" value="Click" class="btn btn-success">Click</button>
+		</div>
+	</div>
+
+
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/my.js"></script>
 </body>
 </html>
